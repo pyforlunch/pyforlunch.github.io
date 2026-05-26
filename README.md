@@ -1,2 +1,2 @@
-# pyforlunch-pyforlunch.github.io
+pyforlunch.github.io
 Portfolio website
