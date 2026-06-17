@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anush Madhusoodhan — Tech Product Owner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a18;
+  --ink-muted: #5a5a54;
+  --ink-faint: #9a9a90;
+  --surface: #faf9f6;
+  --surface-warm: #f3f1eb;
+  --border: rgba(30,28,20,0.1);
+  --border-mid: rgba(30,28,20,0.18);
+  --accent: #2d6a4f;
+  --accent-light: #e8f4ee;
+  --accent-mid: #40916c;
+  --gold: #b5830a;
+  --gold-light: #fef6e4;
+  --r: 8px;
+  --r-lg: 14px;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,249,246,0.88);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);padding:0 2.5rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:0.01em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--ink);color:var(--surface)!important;padding:7px 18px;border-radius:50px;font-size:0.8rem!important;font-weight:500;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--accent)!important;color:#fff!important}
+
+/* SECTIONS */
+main{padding-top:58px}
+section{padding:90px 2.5rem}
+.container{max-width:1100px;margin:0 auto}
+
+/* ALL SECTION HEADINGS — dark green */
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--accent);line-height:1.2;margin-bottom:1.5rem}
+h1.hero-title{color:var(--ink)}
+h1.hero-title em{font-style:italic;color:var(--accent)}
+
+/* HERO */
+#hero{min-height:calc(100vh - 58px);display:flex;align-items:center;background:var(--surface);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
+.hero-label{display:inline-block;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:5px 14px;border-radius:50px;margin-bottom:1.5rem}
+.hero-title{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.15;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.25rem}
+.hero-sub{font-size:1.05rem;color:var(--ink-muted);line-height:1.75;max-width:480px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+/* CTA BUTTONS — dark green, white on hover */
+.btn-primary{background:var(--accent);color:#fff;padding:13px 28px;border-radius:50px;text-decoration:none;font-size:0.9rem;font-weight:500;border:2px solid var(--accent);transition:background 0.2s,color 0.2s,transform 0.15s}
+.btn-primary:hover{background:#fff;color:var(--accent);transform:translateY(-1px)}
+.btn-secondary{border:2px solid var(--accent);color:var(--accent);padding:11px 24px;border-radius:50px;text-decoration:none;font-size:0.9rem;font-weight:500;background:transparent;transition:background 0.2s,color 0.2s}
+.btn-secondary:hover{background:var(--accent);color:#fff}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:3rem}
+.stat-item{background:var(--surface);padding:20px 22px}
+.stat-num{font-family:var(--serif);font-size:1.9rem;color:var(--accent);display:block;line-height:1}
+.stat-label{font-size:0.78rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-top:4px}
+
+/* HERO CARD */
+.hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:2.5rem;position:relative}
+.hero-avatar{width:100px;height:100px;border-radius:50%;overflow:hidden;margin-bottom:1.5rem;border:3px solid var(--accent-light)}
+.hero-avatar img{width:100%;height:100%;object-fit:cover}
+.hero-avatar-fallback{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--accent-light),var(--accent));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;color:#fff;margin-bottom:1.5rem}
+.hero-card-name{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin-bottom:0.25rem}
+.hero-card-title{font-size:0.85rem;color:var(--ink-muted);margin-bottom:1.5rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
+.tag{font-size:0.75rem;padding:4px 12px;border-radius:50px;background:var(--surface-warm);color:var(--ink-muted);border:1px solid var(--border)}
+.availability{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--accent);background:var(--accent-light);padding:10px 16px;border-radius:var(--r)}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* RAINBOW — nav Projects link */
+@keyframes rainbowShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes rainbowText{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes spinHue{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+
+.nav-rainbow{
+  position:relative;
+  font-weight:600 !important;
+  color:#fff !important;
+  background:var(--accent);
+  background-size:300% auto;
+  padding:7px 16px;
+  border-radius:50px;
+  letter-spacing:0.02em;
+  transition:background 0.2s,transform 0.15s;
+}
+.nav-rainbow:hover{
+  background:linear-gradient(90deg,#ff0080,#ff8c00,#ffd700,#00c853,#00b0ff,#9c27b0,#ff0080);
+  background-size:300% auto;
+  animation:rainbowShift 2s linear infinite;
+  transform:translateY(-1px);
+  color:#fff !important;
+}
+
+/* RAINBOW demo button — solid green at rest, rainbow only on hover */
+.btn-demo{
+  position:relative;
+  font-size:0.78rem;font-weight:600;padding:7px 16px;
+  border-radius:50px;text-decoration:none;white-space:nowrap;
+  color:#fff;
+  border:none;
+  background:var(--accent);
+  background-size:300% auto;
+  transition:transform 0.15s,background 0.2s;
+  cursor:pointer;
+}
+.btn-demo:hover{
+  background:linear-gradient(90deg,#ff0080,#ff8c00,#ffd700,#00c853,#00b0ff,#9c27b0,#ff0080);
+  background-size:300% auto;
+  animation:rainbowShift 2s linear infinite;
+  transform:translateY(-1px);
+}
+.btn-demo.no-demo{
+  background:var(--surface-warm);color:var(--ink-faint);
+  animation:none;cursor:default;pointer-events:none;
+  border:1px solid var(--border);
+}
+
+/* ABOUT */
+#about{background:#fff}
+.section-label{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-text p{color:var(--ink-muted);margin-bottom:1.25rem;line-height:1.8}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.skill-chip{font-size:0.82rem;padding:7px 14px;background:var(--surface-warm);border:1px solid var(--border);border-radius:var(--r);color:var(--ink-muted);transition:border-color 0.2s,color 0.2s}
+.skill-chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* EXPERIENCE */
+#experience{background:var(--surface)}
+.timeline{position:relative;margin-top:2.5rem}
+.timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{display:grid;grid-template-columns:48px 1fr;gap:24px;margin-bottom:2.5rem;position:relative}
+.tl-dot{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:var(--accent);position:relative;z-index:1;flex-shrink:0;margin-top:2px}
+.tl-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;transition:border-color 0.2s,box-shadow 0.2s}
+.tl-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(45,106,79,0.08)}
+.tl-meta{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:0.5rem}
+.tl-company{font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent)}
+.tl-date{font-size:0.78rem;color:var(--ink-faint);background:var(--surface-warm);padding:3px 10px;border-radius:50px}
+.tl-role{font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-bottom:0.75rem}
+.tl-bullets{list-style:none;padding:0}
+.tl-bullets li{font-size:0.88rem;color:var(--ink-muted);padding:4px 0 4px 16px;position:relative;line-height:1.65}
+.tl-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.75rem;top:6px}
+
+/* PROJECTS */
+#projects{background:#fff}
+.projects-intro{font-size:0.9rem;color:var(--ink-muted);margin-bottom:2.5rem}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:10px}
+.project-card:hover{border-color:var(--accent-mid);transform:translateY(-2px)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start}
+.project-icon{width:38px;height:38px;background:var(--accent-light);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.project-name{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+.project-desc{font-size:0.85rem;color:var(--ink-muted);line-height:1.6;flex:1}
+.project-lang{display:flex;gap:8px;flex-wrap:wrap}
+.lang-tag{font-size:0.72rem;padding:3px 10px;background:#fff;border:1px solid var(--border);border-radius:50px;color:var(--ink-faint)}
+/* Project footer: demo CTA left (rainbow), github CTA right (subtle) */
+.project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px}
+.btn-gh{font-size:0.75rem;color:var(--ink-faint);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:50px;transition:all 0.2s;white-space:nowrap}
+.btn-gh:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.projects-loading{text-align:center;padding:3rem;color:var(--ink-faint);font-size:0.9rem}
+.github-link{display:inline-flex;align-items:center;gap:8px;margin-top:2rem;font-size:0.85rem;color:#fff;text-decoration:none;background:var(--accent);border:2px solid var(--accent);padding:10px 22px;border-radius:50px;transition:background 0.2s,color 0.2s}
+.github-link:hover{background:#fff;color:var(--accent)}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--surface)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:2rem}
+.cert-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.5rem;display:flex;gap:14px;align-items:flex-start;transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--gold)}
+.cert-icon{width:38px;height:38px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.cert-icon.gold{background:var(--gold-light)}
+.cert-icon.teal{background:var(--accent-light)}
+.cert-name{font-size:0.9rem;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:4px}
+.cert-org{font-size:0.78rem;color:var(--ink-faint)}
+
+/* TESTIMONIALS — fixed height cards with read more */
+#testimonials{background:#fff}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:2.5rem;align-items:start}
+.testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:border-color 0.2s}
+.testimonial-card:hover{border-color:var(--border-mid)}
+.quote-mark{font-family:var(--serif);font-size:3rem;color:var(--accent);line-height:0.8;margin-bottom:0}
+.testimonial-body{position:relative}
+.testimonial-text{font-size:0.875rem;color:var(--ink-muted);line-height:1.8;font-style:italic;overflow:hidden;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical}
+.testimonial-text.expanded{display:block;-webkit-line-clamp:unset}
+.read-more-btn{background:none;border:none;color:var(--accent);font-size:0.8rem;font-weight:500;cursor:pointer;padding:4px 0 0;font-family:var(--sans);text-decoration:underline;text-align:left}
+.read-more-btn:hover{color:var(--accent-mid)}
+.testimonial-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:1rem;margin-top:auto}
+.author-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:500;flex-shrink:0}
+.author-name{font-size:0.9rem;font-weight:500;color:var(--ink)}
+.author-title{font-size:0.75rem;color:var(--ink-faint);line-height:1.4}
+
+/* CONTACT */
+#contact{background:var(--ink);color:var(--surface)}
+#contact .section-label{color:var(--accent-mid)}
+#contact .section-title{color:var(--surface) !important}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:2.5rem}
+.contact-info p{color:rgba(250,249,246,0.65);line-height:1.8;margin-bottom:2rem}
+.contact-item{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.contact-icon{width:36px;height:36px;border-radius:var(--r);background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.contact-label{font-size:0.78rem;color:rgba(250,249,246,0.45);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px}
+.contact-val{font-size:0.9rem;color:var(--surface)}
+.contact-val a{color:var(--surface);text-decoration:none}
+.contact-val a:hover{color:var(--accent-mid);text-decoration:underline}
+.calendly-btn{display:flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:14px 28px;border-radius:50px;text-decoration:none;font-size:0.9rem;font-weight:500;margin-top:1.5rem;width:fit-content;border:2px solid var(--accent);transition:background 0.2s,color 0.2s,transform 0.15s}
+.calendly-btn:hover{background:#fff;color:var(--accent);transform:translateY(-1px)}
+.contact-right{display:flex;flex-direction:column;gap:14px}
+.resume-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-lg);padding:2rem;text-align:center}
+.resume-card h3{font-family:var(--serif);font-size:1.3rem;color:var(--surface);margin-bottom:0.75rem}
+.resume-card p{font-size:0.85rem;color:rgba(250,249,246,0.55);margin-bottom:1.5rem}
+.btn-resume{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:12px 26px;border-radius:50px;font-size:0.875rem;font-weight:500;text-decoration:none;border:2px solid var(--accent);transition:background 0.2s,color 0.2s}
+.btn-resume:hover{background:#fff;color:var(--accent)}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:24px 2.5rem;text-align:center}
+footer p{font-size:0.8rem;color:rgba(250,249,246,0.35)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* EDUCATION */
+#education{background:#fff}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:2rem}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;transition:border-color 0.2s}
+.edu-card:hover{border-color:var(--accent)}
+.edu-degree{font-family:var(--serif);font-size:1rem;color:var(--ink);margin-bottom:0.25rem}
+.edu-school{font-size:0.85rem;color:var(--accent);margin-bottom:0.25rem}
+.edu-detail{font-size:0.8rem;color:var(--ink-faint)}
+
+@media(max-width:768px){
+  .hero-grid,.two-col,.contact-grid,.edu-grid{grid-template-columns:1fr}
+  .hero-card{display:none}
+  nav{padding:0 1.25rem}
+  section{padding:60px 1.25rem}
+  .hero-stats{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Anush M.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects" class="nav-rainbow">Projects ✦</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-label">Tech Product Owner · Atlanta, GA</span>
+        <h1 class="hero-title">Turning <em>ambiguity</em><br>into delivery</h1>
+        <p class="hero-sub">7+ years leading cross-functional SaaS, healthcare, and eCommerce technology initiatives. I bring structure, calm, and clarity to the hardest projects.</p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/anushmadhusoodhan/quick-intro" target="_blank" class="btn-primary">Book a quick intro →</a>
+          <a href="#experience" class="btn-secondary">View experience</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">7+</span>
+            <span class="stat-label">Years experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">$2M+</span>
+            <span class="stat-label">Portfolio managed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">300+</span>
+            <span class="stat-label">Flows migrated</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card fade-in">
+        <div id="hero-avatar-wrap">
+          <!-- Profile picture: replace anush-headshot.jpg with your actual image file in the same folder -->
+          <img id="profile-img" src="anush-headshot.jpg" alt="Anush Madhusoodhan"
+            style="width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:1.5rem;border:4px solid var(--accent-light);display:block"
+            onerror="this.style.display='none';document.getElementById('avatar-fallback').style.display='flex'">
+          <div id="avatar-fallback" style="display:none;width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--accent-light),var(--accent));align-items:center;justify-content:center;font-family:var(--serif);font-size:2.5rem;color:#fff;margin-bottom:1.5rem">AM</div>
+        </div>
+        <div class="hero-card-name">Anush Madhusoodhan</div>
+        <div class="hero-card-title">Tech Product Owner / Delivery Lead</div>
+        <div class="hero-tags">
+          <span class="tag">Agile & Scrum</span>
+          <span class="tag">API Integrations</span>
+          <span class="tag">Healthcare AI</span>
+          <span class="tag">MuleSoft</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">eCommerce</span>
+        </div>
+        <div class="availability">
+          <span class="avail-dot"></span>
+          Open to new opportunities
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="two-col">
+      <div class="about-text fade-in">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Structure in chaos,<br>calm under pressure</h2>
+        <p>I'm a Tech Product Owner with a track record of delivering complex technology initiatives — from healthcare AI migrations to enterprise eCommerce transformations — in environments that don't come with playbooks.</p>
+        <p>My approach is simple: plan rigorously, communicate risks early, and keep humans at the center of every decision. Whether it's a $2M Agile portfolio or a 300-flow MuleSoft migration under a high-stakes timeline, I thrive where things get hard.</p>
+        <p>Based in Atlanta, GA. Previously at Reveleer Health AI and Deloitte. Open to Product Management and Tech PM roles.</p>
+        <div style="display:flex;gap:12px;margin-top:1.5rem;flex-wrap:wrap">
+          <a href="mailto:anushmadhusoodhan@gmail.com" class="btn-secondary">Email me</a>
+          <a href="https://linkedin.com/in/anushmadhu" target="_blank" class="btn-secondary">LinkedIn →</a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-label">Core skills</div>
+        <div class="skills-grid" style="margin-top:0.75rem">
+          <div class="skill-chip">Agile & Scrum</div>
+          <div class="skill-chip">Technical Project Management</div>
+          <div class="skill-chip">API Integrations</div>
+          <div class="skill-chip">Digital Transformation</div>
+          <div class="skill-chip">System & Data Migration</div>
+          <div class="skill-chip">DevOps / SDLC</div>
+          <div class="skill-chip">Stakeholder Management</div>
+          <div class="skill-chip">Risk Management</div>
+          <div class="skill-chip">Jira & Confluence</div>
+          <div class="skill-chip">Product Backlog Mgmt</div>
+          <div class="skill-chip">Salesforce CRM</div>
+          <div class="skill-chip">MuleSoft</div>
+          <div class="skill-chip">SaaS Delivery</div>
+          <div class="skill-chip">UAT Coordination</div>
+          <div class="skill-chip">Sprint Planning</div>
+          <div class="skill-chip">SQL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title fade-in">Where I've delivered</h2>
+    <div class="timeline">
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot">1</div>
+        <div class="tl-card">
+          <div class="tl-meta">
+            <span class="tl-company">Reveleer Health AI</span>
+            <span class="tl-date">Aug 2024 – Oct 2025</span>
+          </div>
+          <div class="tl-role">Technical Project Manager / Delivery Lead</div>
+          <ul class="tl-bullets">
+            <li>Led healthcare AI SaaS transformation involving API integrations, system migrations, and platform modernization to facilitate adoption of the proprietary EVE™ Evidence Validation Engine</li>
+            <li>Managed Agile delivery of a $2M+ portfolio across Engineering, Product, QA, and Customer Success via Scaled Agile delivery practices and release planning</li>
+            <li>Implemented stakeholder governance, RAID management, and release management frameworks from the ground up</li>
+            <li>Delivered executive-level project reporting, risk assessments, and roadmap updates across multiple concurrent projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot">2</div>
+        <div class="tl-card">
+          <div class="tl-meta">
+            <span class="tl-company">Deloitte</span>
+            <span class="tl-date">Jan 2022 – Nov 2023</span>
+          </div>
+          <div class="tl-role">eCommerce Consultant / Technical Delivery Lead</div>
+          <ul class="tl-bullets">
+            <li>Led enterprise eCommerce and CRM implementations for Fortune 500 clients across digital commerce ecosystems</li>
+            <li>Managed Agile ceremonies, backlog prioritization, release planning, and cross-functional delivery across Product, UX, Engineering, and Client Services</li>
+            <li>Facilitated product discovery workshops, roadmap planning, and stakeholder alignment sessions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot">3</div>
+        <div class="tl-card">
+          <div class="tl-meta">
+            <span class="tl-company">BORN Group</span>
+            <span class="tl-date">Sept 2020 – Nov 2021</span>
+          </div>
+          <div class="tl-role">eCommerce Business Analyst</div>
+          <ul class="tl-bullets">
+            <li>Gathered business and technical requirements for enterprise headless commerce implementations</li>
+            <li>Managed user stories, sprint planning, backlog prioritization, and functional documentation within Agile delivery teams</li>
+            <li>Partnered with QA and Engineering to support UAT, defect resolution, and release readiness</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot">4</div>
+        <div class="tl-card">
+          <div class="tl-meta">
+            <span class="tl-company">TheMeditube.com</span>
+            <span class="tl-date">Sept 2019 – Sept 2020</span>
+          </div>
+          <div class="tl-role">Senior Manager, Product & Strategic Partnerships</div>
+          <ul class="tl-bullets">
+            <li>Managed digital transformation involving CMS platforms, customer engagement tools, and healthcare education solutions</li>
+            <li>Coordinated cross-functional stakeholders to improve platform adoption and digital engagement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot">+</div>
+        <div class="tl-card" style="background:transparent;border-style:dashed">
+          <div class="tl-role" style="font-size:0.95rem;color:var(--ink-muted)">Earlier experience</div>
+          <ul class="tl-bullets">
+            <li>Workforce Leader — Event Workforce Group</li>
+            <li>Lead Project Manager — Business Without Borders</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title fade-in">Academic foundations</h2>
+    <div class="edu-grid fade-in">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Information Technology (Business Analysis)</div>
+        <div class="edu-school">Swinburne University of Technology</div>
+        <div class="edu-detail">Specialization in Business Analysis</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering, Electronics & Communications</div>
+        <div class="edu-school">Sona College of Technology</div>
+        <div class="edu-detail">Electronics & Communications Engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title fade-in">Built & shipped</h2>
+    <p class="projects-intro">Public projects from <a href="https://github.com/pyforlunch" target="_blank" style="color:var(--accent)">github.com/pyforlunch</a> — loaded live so new repos appear automatically.</p>
+    <div class="projects-grid" id="projects-grid">
+      <div class="projects-loading" id="projects-loading">Loading projects from GitHub…</div>
+    </div>
+    <a href="https://github.com/pyforlunch" target="_blank" class="github-link fade-in">
+      View all on GitHub →
+    </a>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label">Certifications</div>
+    <h2 class="section-title fade-in">Credentials & expertise</h2>
+    <div class="certs-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-icon gold">🏅</div>
+        <div>
+          <div class="cert-name">Salesforce Certified Platform Administrator</div>
+          <div class="cert-org">Salesforce</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon teal">📋</div>
+        <div>
+          <div class="cert-name">Professional Scrum Product Owner (PSPO)</div>
+          <div class="cert-org">Scrum.org</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon gold">📊</div>
+        <div>
+          <div class="cert-name">IIBA Advanced Diploma in Business Analysis</div>
+          <div class="cert-org">International Institute of Business Analysis</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon teal">🎧</div>
+        <div>
+          <div class="cert-name">Zendesk Certified</div>
+          <div class="cert-org">Zendesk</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon teal">💬</div>
+        <div>
+          <div class="cert-name">Freshworks Certified</div>
+          <div class="cert-org">Freshworks</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon gold">📈</div>
+        <div>
+          <div class="cert-name">Google Analytics Certified</div>
+          <div class="cert-org">Google</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon teal">🗂️</div>
+        <div>
+          <div class="cert-name">Salsify PIM Certified</div>
+          <div class="cert-org">Salsify</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title fade-in">What colleagues say</h2>
+    <div class="testimonials-grid" id="testimonials-grid">
+
+      <div class="testimonial-card fade-in">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-body">
+          <p class="testimonial-text" id="t1">I managed Anush at Reveleer (2024–25) and watched him navigate a high-stakes technology migration from the outset. He brings structure to ambiguity—planning rigorously, communicating risks early, and driving cross-functional alignment to keep teams moving. Dependable, detail-oriented, and proactive, Anush elevates every project he touches. He's exceptionally reliable and always arrives prepared with thoughtful answers—every manager's dream. Strongly recommended for Scrum Master, Product Management, and Project Management opportunities.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('t1',this)">Read more</button>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--accent-light);color:var(--accent)">VK</div>
+          <div>
+            <div class="author-name">Vandana Karthikeya</div>
+            <div class="author-title">VP Engineering, AI Enthusiast | Healthcare · Enterprise Tech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-body">
+          <p class="testimonial-text" id="t2">I had the privilege of working with Anush as the Tech PM on one of the largest integrations I've been a part of—a migration of hundreds of Actian processes into MuleSoft, encompassing more than 300 flows. The project came with an unrealistic timeline, constant moving parts, and its fair share of development challenges, testing hurdles, blockers, and escalations. Through it all, Anush stood out as the best PM I've ever worked with. He is intelligent, communicates with clarity, and has a calm presence that NEVER wavers. What I like most is that he genuinely cares about people—ensuring the team felt supported while keeping us aligned and motivated. He also provided guidance around leveraging AI in the development process, something you'd think would be outside of his circle of responsibility. This helped me personally move faster without sacrificing quality. Anush doesn't just manage projects; he orchestrates success under the toughest conditions. If you have the opportunity to work with him, take it—you won't find a better partner to navigate complexity and deliver results.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('t2',this)">Read more</button>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--surface-warm);color:var(--ink-muted)">SH</div>
+          <div>
+            <div class="author-name">Steve Hromyko</div>
+            <div class="author-title">Solutions Engineer / Integration Architect</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-body">
+          <p class="testimonial-text" id="t3">Kimberly Ross is an Experienced Healthcare Leader who worked with Anush on the same team at Reveleer. Her recommendation speaks to his cross-functional leadership, stakeholder management, and consistent delivery within a high-pressure healthcare environment—reinforcing the pattern that colleagues and managers alike find Anush to be an exceptional PM partner.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('t3',this)">Read more</button>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--gold-light);color:var(--gold)">KR</div>
+          <div>
+            <div class="author-name">Kimberly Ross</div>
+            <div class="author-title">Experienced Healthcare Leader</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:0.8rem;color:var(--ink-faint);margin-top:1.5rem">All recommendations verified on <a href="https://linkedin.com/in/anushmadhu" target="_blank" style="color:var(--accent)">LinkedIn</a></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's work together</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Whether you have a complex project that needs structure, a team that needs leadership, or just want to connect — I'd love to chat.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">Atlanta, GA</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:anushmadhusoodhan@gmail.com">anushmadhusoodhan@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val"><a href="tel:2019045188">201-904-5188</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val"><a href="https://linkedin.com/in/anushmadhu" target="_blank">linkedin.com/in/anushmadhu</a></div>
+          </div>
+        </div>
+        <a href="https://calendly.com/anushmadhusoodhan/quick-intro" target="_blank" class="calendly-btn">
+          📅 Book a quick intro call
+        </a>
+      </div>
+      <div class="contact-right">
+        <div class="resume-card">
+          <h3>Download Resume</h3>
+          <p>Get a copy of my resume with full experience, skills, and certifications.</p>
+          <a href="https://raw.githubusercontent.com/pyforlunch/pyforlunch.github.io/main/Anush_M_Resume_TPM.docx" download="Anush_M_Resume_TPM.docx" class="btn-resume">⬇ Download Resume</a>
+        </div>
+        <div class="resume-card" style="flex:1">
+          <h3>GitHub</h3>
+          <p>Explore my public projects, tools, and AI experiments.</p>
+          <a href="https://github.com/pyforlunch" target="_blank" class="btn-resume">🔗 github.com/pyforlunch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Anush Madhusoodhan · Built to showcase, built to deliver</p>
+</footer>
+
+<script>
+// Fade-in on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+}, {threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Read more toggle for testimonials
+function toggleReadMore(id, btn) {
+  const el = document.getElementById(id);
+  const expanded = el.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Read less' : 'Read more';
+}
+
+// Check if read-more buttons are actually needed (text not clamped)
+window.addEventListener('load', () => {
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    const textId = btn.previousElementSibling.id;
+    const el = document.getElementById(textId);
+    if (el && el.scrollHeight <= el.clientHeight + 2) {
+      btn.style.display = 'none';
+    }
+  });
+});
+
+// Load GitHub projects — filter out pyforlunch.github.io repo
+const EXCLUDED_REPOS = ['pyforlunch.github.io'];
+
+async function loadProjects() {
+  const grid = document.getElementById('projects-grid');
+  const loading = document.getElementById('projects-loading');
+  try {
+    const res = await fetch('https://api.github.com/users/pyforlunch/repos?sort=updated&per_page=20&type=public');
+    if (!res.ok) throw new Error('fetch failed');
+    const repos = await res.json();
+    loading.remove();
+    const icons = ['🤖','📊','🔧','⚡','🧠','📦','🎯','🔍','💡','🚀','🛠️','📈'];
+    let count = 0;
+    repos.forEach((repo, i) => {
+      if (repo.fork) return;
+      if (EXCLUDED_REPOS.includes(repo.name.toLowerCase())) return;
+      const card = document.createElement('div');
+      card.className = 'project-card fade-in';
+      const langs = repo.language ? `<span class="lang-tag">${repo.language}</span>` : '';
+      const stars = repo.stargazers_count > 0 ? `<span class="lang-tag">★ ${repo.stargazers_count}</span>` : '';
+      const desc = repo.description || 'No description provided.';
+      const hasDemo = repo.homepage && repo.homepage.trim() !== '';
+      const demoBtn = hasDemo
+        ? `<a href="${repo.homepage}" target="_blank" rel="noopener" class="btn-demo" onclick="event.stopPropagation()">▶ View demo</a>`
+        : `<span class="btn-demo no-demo">▶ View demo</span>`;
+      const ghBtn = `<a href="${repo.html_url}" target="_blank" rel="noopener" class="btn-gh" onclick="event.stopPropagation()">GitHub →</a>`;
+      card.innerHTML = `
+        <div class="project-header">
+          <div class="project-icon">${icons[count % icons.length]}</div>
+        </div>
+        <div class="project-name">${repo.name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+        <div class="project-desc">${desc}</div>
+        <div class="project-lang">${langs}${stars}</div>
+        <div class="project-footer">${demoBtn}${ghBtn}</div>
+      `;
+      grid.appendChild(card);
+      obs.observe(card);
+      count++;
+    });
+    if (count === 0) {
+      grid.innerHTML = '<p style="color:var(--ink-faint);padding:2rem 0;grid-column:1/-1">No public repositories found yet. Check back soon!</p>';
+    }
+  } catch(e) {
+    loading.textContent = 'Could not load projects — view them at github.com/pyforlunch';
+    loading.style.cursor = 'pointer';
+    loading.onclick = () => window.open('https://github.com/pyforlunch','_blank');
+  }
+}
+loadProjects();
+</script>
+</body>
+</html>
